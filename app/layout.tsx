@@ -2,6 +2,8 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import Footer from '@/components/footer';
+import { ThemeProvider } from '@/components/theme-provider';
 import { ClerkProvider } from '@clerk/nextjs';
 
 import './globals.css';
@@ -25,7 +27,15 @@ export default function RootLayout({
                 suppressHydrationWarning
             >
                 <body className={`flex min-h-screen flex-col ${inter.className}`}>
+                    <ThemeProvider
+                        enableSystem
+                        attribute='class'
+                        defaultTheme='system'
+                        disableTransitionOnChange
+                    >
                         <main className='grow'>{children}</main>
+                        <Footer />
+                    </ThemeProvider>
                 </body>
             </html>
         </ClerkProvider>

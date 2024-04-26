@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ThemeToggle } from '@/components/theme-toggle';
 import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import { Button } from '@/components/ui/button';
 
@@ -16,6 +17,8 @@ export default function Home() {
                 </ul>
 
                 <div className='flex items-center justify-between gap-6'>
+                    <ThemeToggle />
+
                     <SignedOut>
                         <SignInButton mode='modal'>
                             <Button size='sm'>Sign in</Button>
