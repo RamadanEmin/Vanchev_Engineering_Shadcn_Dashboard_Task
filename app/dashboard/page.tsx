@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import {
     Card,
     CardContent,
+    CardDescription,
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
@@ -16,6 +17,8 @@ import {
 } from '@/components/ui/tabs';
 import { CalendarDateRangePicker } from '@/components/date-range-picker';
 import { MainNav } from '@/components/main-nav';
+import { Overview } from '@/components/overview';
+import { RecentSales } from '@/components/recent-sales';
 import { Search } from '@/components/search';
 import TeamSwitcher from '@/components/team-switcher';
 import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
@@ -186,6 +189,27 @@ export default function DashboardPage() {
                                         <p className="text-xs text-muted-foreground">
                                             +201 since last hour
                                         </p>
+                                    </CardContent>
+                                </Card>
+                            </div>
+                            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+                                <Card className="col-span-4">
+                                    <CardHeader>
+                                        <CardTitle>Overview</CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="pl-2">
+                                        <Overview />
+                                    </CardContent>
+                                </Card>
+                                <Card className="col-span-3">
+                                    <CardHeader>
+                                        <CardTitle>Recent Sales</CardTitle>
+                                        <CardDescription>
+                                            You made 265 sales this month.
+                                        </CardDescription>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <RecentSales />
                                     </CardContent>
                                 </Card>
                             </div>
