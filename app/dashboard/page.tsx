@@ -1,8 +1,12 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 
+import { Button } from '@/components/ui/button';
 import { MainNav } from '@/components/main-nav';
+import { Search } from '@/components/search';
 import TeamSwitcher from '@/components/team-switcher';
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 export const metadata: Metadata = {
     title: 'Dashboard',
@@ -33,6 +37,18 @@ export default function DashboardPage() {
                     <div className="flex h-16 items-center px-4">
                         <TeamSwitcher />
                         <MainNav className="mx-6" />
+                        <div className="ml-auto flex items-center space-x-4">
+                            <Search />
+                            <ThemeToggle />
+                            <SignedOut>
+                                <SignInButton mode='modal'>
+                                    <Button size='sm'>Sign in</Button>
+                                </SignInButton>
+                            </SignedOut>
+                            <SignedIn>
+                                <UserButton />
+                            </SignedIn>
+                        </div>
                     </div>
                 </div>
             </div>
